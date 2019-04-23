@@ -1,0 +1,3 @@
+[submodule "themes/cmsgov-api-doc/static/bluebutton-css"]
+	path = themes/cmsgov-api-doc/assets/bluebutton-css
+	url = https://github.com/CMSgov/bluebutton-css.git
