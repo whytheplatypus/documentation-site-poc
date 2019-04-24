@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Articles on My New Hugo Site</title>
+    <link>http://example.org/article/</link>
+    <description>Recent content in Articles on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Apr 2019 14:18:41 -0400</lastBuildDate>
+    
+	<atom:link href="http://example.org/article/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started</title>
+      <link>http://example.org/article/getting-started/</link>
+      <pubDate>Wed, 24 Apr 2019 14:18:41 -0400</pubDate>
+      
+      <guid>http://example.org/article/getting-started/</guid>
+      <description>What is the Blue Button API?
+The Centers for Medicare and Medicaid Services (CMS) Blue Button Application Programming Interface (API) is a tool that enables Medicare beneficiaries to connect their Medicare claims data to the applications, services, and research programs they trust. It also provides developers, organizations, and companies the ability to build apps that can provide unique and innovative services to Medicare beneficiaries.
+The the API Now in Swagger</description>
+    </item>
+    
+    <item>
+      <title>Authorization</title>
+      <link>http://example.org/article/authorization/</link>
+      <pubDate>Tue, 23 Apr 2019 13:41:49 -0400</pubDate>
+      
+      <guid>http://example.org/article/authorization/</guid>
+      <description>This is an example section about oauth2 authorization.</description>
+    </item>
+    
+  </channel>
+</rss>
