@@ -8,18 +8,26 @@
                 "domNode": docs,
                 "url": "https://sandbox.bluebutton.cms.gov/v1/openapi.json",
                 "oauth2RedirectUrl": window.location.href,
-                "plugins": [ OperationsLayoutPlugin ],
-                "layout": "OperationsLayout",
+                "plugins": [ OpenAPILayoutPlugin ],
+                "layout": "AuthsLayout",
                 "requestInterceptor": (req) => {
-                    params = new URLSearchParams(window.location.hash.substr(1))
-                    token = params.get("access_token")
+                    token = localStorage.getItem('token')
                     if (token !== null) {
                         req.headers.Authorization = "Bearer " + token
                     }
                     return req
                 },
+                "responseInterceptor": (resp) => {
+                    params = new URLSearchParams(window.location.hash.substr(1))
+                    token = params.get("access_token")
+                    if (token) {
+                        localStorage.setItem('token', token);
+                    }
+                    return resp
+                },
+            }).initOAuth({
+                "clientId": {{ .Site.Params.oauth.client_id }},
             })
-            console.debug(swagger_config)
         }
         window.addEventListener('DOMContentLoaded', initSwagger);
     }())

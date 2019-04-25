@@ -2,3 +2,6 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "cmsgov-api-doc"
+
+[params.oauth]
+client_id = "tXUThq35M4bBUUjMF6Dqqo9sHSEL9xNZ5bJdh4Dz"

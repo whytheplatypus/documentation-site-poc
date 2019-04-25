@@ -7,4 +7,4 @@ draft: true
 
 This is an example section about oauth2 authorization.
 
-{{< openapi test >}}
+{{< openapi/auth test >}}

@@ -2,54 +2,41 @@
 
 let React = SwaggerUIBundle({}).React
 // Create the layout component
-class OperationsLayout extends React.Component {
-  //let propTypes = {
-  //  "specActions": PropTypes.object.isRequired,
-  //  "specSelectors": PropTypes.object.isRequired,
-  //  "authActions": PropTypes.object.isRequired,
-  //  "authSelectors": PropTypes.object.isRequired,
-  //  "getComponent": PropTypes.func.isRequired,
-  //}
+class AuthsLayout extends React.Component {
 
   render() {
-    console.debug(this.props)
-    const { authActions, authSelectors, specSelectors, getComponent} = this.props
+    const { authSelectors, authActions, getComponent, errSelectors, specSelectors, fn: { AST = {} } } = this.props
 
-    const securityDefinitions = specSelectors.securityDefinitions()
     const authorizableDefinitions = authSelectors.definitionsToAuthorize()
+    authActions.showDefinitions(authorizableDefinitions)
+    let definitions = authSelectors.shownDefinitions()
 
+    const Auths = getComponent("auths")
 
-    const Operations = getComponent("authorizationPopup", true)
+    let auths = definitions.valueSeq().map(function(x, y) {
+        let auth_props = {
+            "key": y,
+            "AST": AST,
+            "definitions": x,
+            "getComponent":getComponent,
+            "errSelectors": errSelectors,
+            "authSelectors": authSelectors,
+            "authActions": authActions,
+            "specSelectors": specSelectors,
+        }
 
-    let auth_props = {
-        "onClick": function() {authActions.showDefinitions(authorizableDefinitions)},
-        "isAuthorized":!!authSelectors.authorized().size,
-        "showPopup":!!authSelectors.shownDefinitions(),
-        "getComponent":getComponent,
-    }
+        return React.createElement(Auths, auth_props);
+    })
 
-    //return React.createElement("div", {"key": "test"}, showPopup && React.createElement(Operations, auth_props));
-    return React.createElement("div", {
-        className: "auth-wrapper"
-      }, React.createElement("button", {
-        className: auth_props.isAuthorized ? "btn authorize locked" : "btn authorize unlocked",
-        onClick: auth_props.onClick
-      }, React.createElement("span", null, "Authorize"), React.createElement("svg", {
-        width: "20",
-        height: "20"
-      }, React.createElement("use", {
-        href: auth_props.isAuthorized ? "#locked" : "#unlocked",
-        xlinkHref: auth_props.isAuthorized ? "#locked" : "#unlocked"
-      }))), auth_props.showPopup && React.createElement(Operations, null));
-
+    return React.createElement("div", { className: "auth-wrapper" }, auths);
   }
 }
 
 // Create the plugin that provides our layout component
-const OperationsLayoutPlugin = function() {
+const OpenAPILayoutPlugin = function() {
   return {
     "components": {
-      "OperationsLayout": OperationsLayout,
+      "AuthsLayout": AuthsLayout,
     }
   }
 }
