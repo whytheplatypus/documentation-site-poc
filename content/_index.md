@@ -6,6 +6,29 @@ date: 2019-04-23T13:41:49-04:00
 draft: true
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla turpis felis, sit amet consectetur lectus accumsan in. Curabitur viverra diam a enim facilisis dignissim. Integer sit amet est sit amet ipsum ornare dapibus convallis sed dolor. Maecenas mattis nisi et ligula molestie, ac finibus nisi tincidunt. Morbi gravida tellus vel quam cursus lobortis ac placerat mi. Integer ut turpis auctor, vehicula velit sit amet, rutrum ex. Integer malesuada gravida elit sollicitudin condimentum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+**What is the Blue Button API?**
 
-Etiam dapibus sem tempor ex consectetur, in viverra dui faucibus. In ut quam ut sem vulputate cursus vel vel urna. Nulla varius faucibus ante quis iaculis. Pellentesque ipsum ex, interdum at dictum non, finibus semper nisi. Suspendisse lobortis vitae velit sed ultricies. Maecenas urna ipsum, mollis at rutrum sodales, tempor id ex. Phasellus ultricies urna nec finibus pretium. Vivamus porttitor vestibulum ante, ut dapibus diam sagittis egestas. Vivamus eget ullamcorper tortor, eget gravida justo. Vivamus consequat ullamcorper felis eget vulputate. Duis non rutrum ex. Nam consectetur dapibus velit ut dictum. Pellentesque viverra mauris in commodo malesuada. Vestibulum elementum, arcu quis lacinia sodales, velit dolor porta lectus, eu blandit tellus nibh non tellus. Etiam at bibendum mauris. Donec interdum nibh id lacus vestibulum gravida. 
+The Centers for Medicare and Medicaid Services (CMS) Blue Button Application Programming Interface (API) is a tool that enables Medicare beneficiaries to connect their Medicare claims data to the applications, services, and research programs they trust. It also provides developers, organizations, and companies the ability to build apps that can provide unique and innovative services to Medicare beneficiaries.
+
+<a class="button" href="#">Try the API Now in Swagger</a>
+
+**For Medicare Beneficiaries:**
+- One of the core goals of Blue Button is to give you, the Medicare beneficiary, more control, choice, and information about your healthcare data. 
+- As a beneficiary, you can choose to share your data with the applications you trust and want to use.
+- The applications you trust can continue to retrieve new claims information. You can disconnect an application from receiving new information by going to the application dashboard in your account on the MyMedicare.gov portal. Applications may also provide an option to disconnect from our API within your account in that application. Accessing that capability will vary from application to application.
+
+**For Developers:**
+- Enables you as a developer or member of a development team to register or edit your application settings that interact with the Blue Button 2.0 API.
+- You can use our sample data (also known as "synthetic data") to build and test the functionality of your application with realistic Medicare data.
+- Use standards-based protocols for beneficiary authorization (OAuth 2.0) and for beneficiary data access (HL7 FHIR) enabling you to use popular code libraries to speed your development. 
+
+**For Companies/Organizations:**
+- Our Terms of Use and policies provide clear feedback on how to build applications that protect Medicare beneficiaries and provide valuable services.
+- After our approval process, we enable apps to use Blue Button to deliver data to their users.
+Access summary and business case documentation to help you understand the value of Blue Button 2.0 and to support your organization's decision to integrate our API.
+
+**For Researchers:**
+- Our API has been built to support the Sync-for-Science specification making it easier for you to enable beneficiaries to donate their information to your research project
+- Our API issues access tokens that allow data to be retrieved without requiring the continual intervention of the beneficiary after initial onboarding to a study. 
+
+If you’re an experienced developer, who's ready to jump in, feel free to view our full Swagger documentation. 
