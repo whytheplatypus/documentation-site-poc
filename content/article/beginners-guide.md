@@ -10,7 +10,7 @@ If you are new to development, healthcare, or APIs - some of this information ca
 
 An API (Application Programming Interface) is essentially a set of features and rules that exist inside a software program that allow other software programs to interact with it. For example, you can build an app that uses the Twitter API to get information or data from a user's Twitter account. APIs are used in a wide variety of ways, but for our purposes, you can think of an API as a pipeline that can allow users of your application to grant their consent to have their healthcare data delivered to your application.
 
-[Read More About APIs Here](#)
+[Read More About APIs Here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
 
 **What is Blue Button Data?**
 
@@ -47,6 +47,3 @@ One of the things you'll need to understand about FHIR is the building blocks of
 We try to explain the relationship between Blue Button data and the FHIR standard as we go, but don't be shy about seeking more information on your own.
 
 [Get more information about FHIR](https://www.hl7.org/fhir/overview.html)
-
-
-
