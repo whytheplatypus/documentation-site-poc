@@ -4,6 +4,8 @@
     {{- $styles := resources.Get "bluebutton-css/dist/static-main.css" -}}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
     <script src="https://unpkg.com/swagger-ui-dist@3.22.1/swagger-ui-bundle.js"></script>
+    {{- $scripts := resources.Get "openapi.js" -}}
+    <script src="{{ $scripts.Permalink }}"></script>
     <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@3.22.0/swagger-ui.css">
     <style>
 
