@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="ds-base doc-base" id="main">
+  <div class="ds-l-row">
+    <aside class="ds-l-col--2 ds-u-margin-left--right ds-u-display--none ds-u-sm-display--block" role="complementary">
+        {{- partial "nav.html" . -}}
+    </aside>
+    <div class="ds-l-col--12 ds-l-sm-col--7 doc-content">
+        <h1 id="title">{{ .Title }}</h1>
+        <p>{{ .Params.subtitle }}</p>
+        <hr />
+        {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}
