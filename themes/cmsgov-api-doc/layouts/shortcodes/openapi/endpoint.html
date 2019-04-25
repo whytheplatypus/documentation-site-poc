@@ -1,0 +1,34 @@
+<div id="{{ .Get 0 }}-swagger"></div>
+<script>
+    (function () {
+        function initSwagger() {
+            let docs = document.getElementById("test-swagger")
+            let swagger_config = SwaggerUIBundle({
+                "custom": {"path": "{{ .Get 1 }}"},
+                "domNode": docs,
+                "url": "https://sandbox.bluebutton.cms.gov/v1/openapi.json",
+                "oauth2RedirectUrl": window.location.href,
+                "plugins": [ OpenAPILayoutPlugin ],
+                "layout": "EndpointLayout",
+                "requestInterceptor": (req) => {
+                    token = localStorage.getItem('token')
+                    if (token !== null) {
+                        req.headers.Authorization = "Bearer " + token
+                    }
+                    return req
+                },
+                "responseInterceptor": (resp) => {
+                    params = new URLSearchParams(window.location.hash.substr(1))
+                    token = params.get("access_token")
+                    if (token) {
+                        localStorage.setItem('token', token);
+                    }
+                    return resp
+                },
+            }).initOAuth({
+                "clientId": {{ .Site.Params.oauth.client_id }},
+            })
+        }
+        window.addEventListener('DOMContentLoaded', initSwagger);
+    }())
+</script>
