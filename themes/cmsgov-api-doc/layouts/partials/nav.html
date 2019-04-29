@@ -1,34 +1,25 @@
 <nav class="doc-side-nav">
-    <ul aria-labelledby="page-sub-nav">
-        <li>
-            <a class="active" href="/">
-                Getting Started
-            </a>
-        </li>
-        <li>
-            <a href="article/beginners-guide">
-                Beginner's Guide
-            </a>
-        </li>
-
-        <li><a href="#authorization" aria-label="Authorization section, current page" class="ds-u-display--block blueberry-lime-link">Authorization</a></li>
-
-        <li><a href="#core-resources" aria-label="Core Resources section, current page" class="ds-u-display--block blueberry-lime-link">Core Resources</a></li>
-
-        <li><a href="#fhir-data-model" aria-label="FHIR Data Model section, current page" class="ds-u-display--block blueberry-lime-link">FHIR Data Model</a></li>
-
-        <li><a href="#try-the-api" aria-label="Try the API section, current page" class="ds-u-display--block blueberry-lime-link">Try the API</a></li>
-
-        <li><a href="#sample-beneficiaries" aria-label="Sample Beneficiaries section, current page" class="ds-u-display--block blueberry-lime-link">Sample Beneficiaries</a></li>
-
-        <li><a href="#production-api-access" aria-label="Production API Access section, current page" class="ds-u-display--block blueberry-lime-link">Production API Access</a></li>
-
-        <li><a href="#developer-guidelines" aria-label="Developer Guidelines section, current page" class="ds-u-display--block blueberry-lime-link">Developer Guidelines</a></li>
-
-        <li><a href="#blue-button-implementation-guide" aria-label="Blue Button Implementation Guide section, current page" class="ds-u-display--block blueberry-lime-link">Blue Button Implementation Guide</a></li>
-
-    </ul>
-    <h5 class="sr-only" id="page-cta-nav">External navigation links</h5>
-    <ul class="ds-c-list ds-c-list--bare ds-u-margin-top--2" aria-labelledby="page-cta-nav">
-    </ul>
+	<ul aria-labelledby="page-sub-nav">
+		{{ range where .Site.Sections "Name" "Pages" }}
+		{{ range .Sections }}
+		<li>
+			<a class="active" href="{{ .Permalink }}">
+				{{ .Name }}
+			</a>
+			<ul aria-labelledby="page-sub-nav">
+				{{ range .Pages }}
+				<li>
+					<a class="active" href="{{ .Permalink }}">
+						{{ .Title }}
+					</a>
+				</li>
+				{{ end }}
+			</ul>
+		</li>
+		{{ end }}
+		{{ end }}
+	</ul>
+	<h5 class="sr-only" id="page-cta-nav">External navigation links</h5>
+	<ul class="ds-c-list ds-c-list--bare ds-u-margin-top--2" aria-labelledby="page-cta-nav">
+	</ul>
 </nav>
