@@ -2,8 +2,9 @@
 <script>
     (function () {
         function initSwagger() {
-            let docs = document.getElementById("test-swagger")
+			let docs = document.getElementById("{{ .Get 0 }}-swagger")
             let swagger_config = SwaggerUIBundle({
+                "custom": {"flow": "{{ .Get 1 }}"},
                 "domNode": docs,
                 "url": "https://sandbox.bluebutton.cms.gov/v1/openapi.json",
                 "oauth2RedirectUrl": window.location.href,

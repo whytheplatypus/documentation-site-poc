@@ -6,28 +6,40 @@ let Im = SwaggerUIBundle({}).Im
 class AuthsLayout extends React.Component {
 
     render() {
-        const { authSelectors, authActions, getComponent, errSelectors, specSelectors, fn: { AST = {} } } = this.props
+        const { authSelectors, authActions, errActions, getConfigs, getComponent, errSelectors, specSelectors, fn: { AST = {} } } = this.props
 
         const authorizableDefinitions = authSelectors.definitionsToAuthorize()
         authActions.showDefinitions(authorizableDefinitions)
-        let definitions = authSelectors.shownDefinitions()
+        const desired_flow = getConfigs().custom.flow
+        let definitions = authSelectors.shownDefinitions().map(
+			schema => {
+				return schema.get("OAuth2")
+			})
+		let authorized = authSelectors.authorized()
 
-        const Auths = getComponent("auths")
+        const Auths = getComponent("oauth2", true)
+		let auths = definitions.filter( schema => {
+			return schema.get("type") === "oauth2"
+		}).filter( schema => {
+			return schema.get("flow") === desired_flow
+		}).map( (schema, name) => {
+			console.debug(schema)
+			let auth_props = {
+				"authorized": authorized,
+				"schema": schema,
+				//"name": name,
+				"getComponent": getComponent,
+				"authSelectors": authSelectors,
+				"authActions": authActions,
+				"errSelectors": errSelectors,
+				"specSelectors": specSelectors,
+				"errActions": errActions,
+				"getConfigs": getConfigs,
+			}
+			console.debug(auth_props)
 
-        let auths = definitions.valueSeq().map(function(x, y) {
-            let auth_props = {
-                "key": y,
-                "AST": AST,
-                "definitions": x,
-                "getComponent":getComponent,
-                "errSelectors": errSelectors,
-                "authSelectors": authSelectors,
-                "authActions": authActions,
-                "specSelectors": specSelectors,
-            }
-
-            return React.createElement(Auths, auth_props);
-        })
+			return React.createElement(Auths, auth_props);
+		})
 
         return React.createElement("div", { className: "auth-wrapper swagger-ui" }, auths);
     }
@@ -74,3 +86,16 @@ const OpenAPILayoutPlugin = function() {
         }
     }
 }
+
+(function () {
+	function initAccessToken() {
+		let token_spans = document.getElementsByClassName("access-token")
+		console.debug(token_spans)
+		let tkn = localStorage.getItem('token')
+		for (var i = 0; i < token_spans.length; i++) {
+			console.debug(token_spans[i])
+			token_spans[i].innerText = tkn
+		}
+	}
+	window.addEventListener('DOMContentLoaded', initAccessToken);
+}())
