@@ -29,7 +29,7 @@ class AuthsLayout extends React.Component {
             return React.createElement(Auths, auth_props);
         })
 
-        return React.createElement("div", { className: "auth-wrapper" }, auths);
+        return React.createElement("div", { className: "auth-wrapper swagger-ui" }, auths);
     }
 }
 
